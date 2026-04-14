@@ -6,11 +6,14 @@ Thumbs.db
 .gemini/
 antigravity/
 
-# Artifacts/Brain
+# Artifacts/Brain (Keep original images in /assets)
 brain/
 knowledge/
-walkthrough.md
+walkthrough*.md
 implementation_plan*.md
 task.md
-*.png
-*.webp
+!.gitkeep
+!assets/*.png
+!assets/*.webp
+!assets/*.jpg
+!assets/*.svg
