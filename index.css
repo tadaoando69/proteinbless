@@ -1167,3 +1167,61 @@ svg {
     .cart-drawer { max-width: 100%; }
     .cart-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
 }
+
+/* Promo Popup Styling */
+.promo-container {
+    position: relative;
+    max-width: 550px;
+    width: 90%;
+    max-height: 90vh;
+    background: transparent;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+    transform: scale(0.7);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.modal-overlay.active .promo-container {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.promo-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+#close-promo {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    z-index: 10;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+}
+
+#close-promo:hover {
+    background: var(--color-accent);
+    color: #000;
+    transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+    .promo-container {
+        max-width: 95%;
+    }
+}
