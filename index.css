@@ -486,8 +486,13 @@ nav {
     }
 
     .swiper-button-next, .swiper-button-prev {
-        display: none !important; /* Hide arrows on small mobile to avoid layout breaking, use swipe */
+        display: flex !important;
+        transform: scale(0.6);
+        top: auto !important;
+        bottom: 40px !important;
     }
+    .swiper-button-next { right: 10px !important; }
+    .swiper-button-prev { left: 10px !important; }
 
     .hero {
         text-align: center;
