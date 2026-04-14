@@ -513,23 +513,36 @@ nav {
 
     .editorial-info h3 {
         font-size: 1.8rem !important;
-        margin-bottom: 0.8rem !important;
+        margin-bottom: 0.4rem !important;
+    }
+
+    .editorial-info .badge {
+        margin-bottom: 0.4rem !important;
     }
 
     .specs-text {
         font-size: 0.9rem !important;
-        margin-bottom: 1rem !important;
+        margin-bottom: 0.8rem !important;
         max-width: 100% !important;
+        line-height: 1.4 !important;
     }
 
     .editorial-footer {
         flex-direction: column !important;
-        gap: 0.5rem !important;
+        gap: 0.8rem !important;
+    }
+
+    .editorial-footer .price {
+        font-size: 1.8rem !important;
+    }
+
+    .minimal-btn {
+        padding: 0.7rem 2rem !important;
     }
 
     #favorites {
         margin-top: 0 !important;
-        padding: 1.5rem 0 6rem;
+        padding: 1rem 0 4rem;
     }
 
     .image-inner img {
