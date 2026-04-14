@@ -435,19 +435,74 @@ nav {
 }
 
 @media (max-width: 768px) {
+    html, body { overflow-x: hidden; }
+    
     header {
         padding: var(--spacing-sm) 0;
     }
+    
     nav {
         flex-direction: column;
-        gap: var(--spacing-sm);
+        gap: 0.5rem;
     }
+    
+    .logo { font-size: 1.1rem; }
+    .logo img { height: 40px; }
+    
     .nav-links {
-        gap: var(--spacing-sm);
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        justify-content: center;
     }
+    
     .nav-links a {
         font-size: 0.7rem;
     }
+
+    h1 { font-size: 2.5rem !important; text-align: center; }
+    h2 { font-size: 2rem !important; }
+
+    .hero {
+        text-align: center;
+        height: 70vh;
+    }
+
+    .hero-content {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+        margin: 1rem auto;
+    }
+
+    .editorial-card {
+        flex-direction: column-reverse !important;
+        text-align: center !important;
+        gap: 1.5rem !important;
+        padding: 1rem !important;
+    }
+
+    .editorial-info h3 {
+        font-size: 2rem !important;
+    }
+
+    .specs-text {
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .editorial-footer {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+
+    #favorites {
+        margin-top: 0 !important;
+        padding: 2rem 0;
+    }
+
     .bento-grid, .product-grid {
         grid-template-columns: 1fr;
     }
