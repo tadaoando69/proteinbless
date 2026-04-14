@@ -1147,3 +1147,19 @@ svg {
 #close-promo:hover { background: var(--color-accent); color: #000; transform: rotate(90deg); }
 
 @media (max-width: 768px) { .promo-container { max-width: 95%; } }
+/* Subtle Text Animation */
+@keyframes floatSubtle {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+    100% { transform: translateY(0); }
+}
+
+h1, h2, h3, .serif, .badge, .product-price {
+    animation: floatSubtle 4s ease-in-out infinite;
+    display: inline-block; /* Required for some transform behaviors */
+}
+
+/* Specific delay for variety */
+h2 { animation-delay: 0.5s; }
+h3 { animation-delay: 1s; }
+.badge { animation-delay: 1.5s; }
