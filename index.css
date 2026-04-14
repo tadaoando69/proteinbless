@@ -854,4 +854,100 @@ nav {
         font-size: 1.5rem;
     }
 }
-$css
+
+/* Delivery Section - High Impact */
+#delivery {
+    padding: 0 !important;
+    margin: 4rem 0 !important;
+}
+
+.delivery-banner {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/waffle.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.delivery-content {
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+    padding: 2rem;
+    z-index: 10;
+}
+
+.delivery-title-huge {
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-size: clamp(3.5rem, 15vw, 10rem);
+    text-transform: uppercase;
+    color: #FFFFFF;
+    line-height: 0.9;
+    margin: 1rem 0;
+    letter-spacing: -0.02em;
+    font-weight: 900;
+}
+
+.delivery-tagline {
+    display: inline-block;
+    background: #FFD700; /* Vibrant Gold/Yellow from the image */
+    color: #000000;
+    font-weight: 900;
+    padding: 0.6rem 2rem;
+    font-size: clamp(0.9rem, 3vw, 1.4rem);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.delivery-actions {
+    margin-top: 3rem;
+}
+
+.delivery-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.2rem 3rem;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.delivery-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: #20BA56;
+}
+
+/* Optimization: Faster Scrolling Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); /* Faster duration */
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-mask span {
+    transform: translateY(110%);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); /* Faster duration */
+}
+
+@media (max-width: 768px) {
+    .delivery-banner { min-height: 50vh; }
+    .delivery-title-huge { font-size: 4rem; }
+}

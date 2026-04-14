@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Reveal animations logic
     const observerOptions = {
-        threshold: 0.1
+        threshold: 0.01 // Trigger faster as soon as it enters viewport
     };
 
     const revealObserver = new IntersectionObserver((entries) => {
