@@ -476,7 +476,7 @@ nav {
 
     #favorites .swiper-container {
         overflow: hidden !important;
-        padding: 20px 0 60px !important;
+        padding: 20px 0 30px !important;
     }
 
     .editorial-info {
@@ -547,7 +547,7 @@ nav {
 
     #favorites {
         margin-top: 0 !important;
-        padding: 0.5rem 0 3rem;
+        padding: 0.5rem 0 0.5rem !important;
     }
 
     .image-inner img {
