@@ -463,52 +463,59 @@ nav {
         font-size: 0.7rem;
     }
 
-    h1 { font-size: 2.5rem !important; text-align: center; }
-    h2 { font-size: 2rem !important; }
+    h1 { font-size: 2.2rem !important; text-align: center; }
+    h2 { 
+        font-size: 1.8rem !important; 
+        text-align: center !important; 
+        width: 100%;
+        margin-bottom: 1rem !important;
+    }
 
     .hero {
         text-align: center;
-        height: 70vh;
+        height: 60vh;
     }
 
     .hero-content {
-        padding: 1rem;
+        padding: 0.5rem;
         width: 100%;
     }
 
     .hero-content p {
-        font-size: 0.9rem;
-        margin: 1rem auto;
+        font-size: 0.85rem;
+        margin: 0.5rem auto;
     }
 
     .editorial-card {
         flex-direction: column-reverse !important;
         text-align: center !important;
-        gap: 1.5rem !important;
-        padding: 1rem !important;
+        gap: 1rem !important;
+        padding: 0.5rem !important;
     }
 
     .editorial-info h3 {
-        font-size: 2rem !important;
+        font-size: 1.8rem !important;
+        margin-bottom: 0.8rem !important;
     }
 
     .specs-text {
-        font-size: 1rem !important;
-        margin-bottom: 1.5rem !important;
+        font-size: 0.9rem !important;
+        margin-bottom: 1rem !important;
+        max-width: 100% !important;
     }
 
     .editorial-footer {
         flex-direction: column !important;
-        gap: 1rem !important;
+        gap: 0.5rem !important;
     }
 
     #favorites {
         margin-top: 0 !important;
-        padding: 3rem 0 5rem;
+        padding: 1.5rem 0 6rem;
     }
 
     .image-inner img {
-        max-width: 280px !important;
+        max-width: 250px !important;
         margin: 0 auto;
         transform: none !important;
     }
