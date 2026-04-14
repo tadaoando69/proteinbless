@@ -31,19 +31,19 @@ document.addEventListener('DOMContentLoaded', () => {
         'ai-waffle': {
             title: 'Gourmet Protein Waffle',
             price: 'S/ 24.00',
-            image: 'assets/ai_waffle.png',
+            image: 'assets/ai_waffle_v2.png',
             description: 'Waffle premium de proteína aislada con una textura crujiente por fuera y suave por dentro. Decorado con bayas frescas del huerto, rodajas de banano y un toque de miel orgánica. El desayuno ideal para campeones.'
         },
         'ai-bowl': {
             title: 'Açai Protein Bowl',
             price: 'S/ 20.00',
-            image: 'assets/ai_bowl.png',
+            image: 'assets/ai_bowl_v2.png',
             description: 'Un superfood bowl cargado de energía. Base de açai orgánico con proteína, coronado con semillas de chía, granola artesanal y frutas tropicales. Una explosión de antioxidantes para tu día.'
         },
         'ai-toast': {
             title: 'Protein Avocado Toast',
             price: 'S/ 22.00',
-            image: 'assets/ai_toast.png',
+            image: 'assets/ai_toast_v2.png',
             description: 'Tostada de pan de masa madre con aguacate cremoso, semillas de girasol y un huevo poché perfecto. Cargado de grasas saludables y proteína de alta calidad para un rendimiento máximo.'
         },
         'ai-tart': {
