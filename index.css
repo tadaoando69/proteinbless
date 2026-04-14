@@ -781,10 +781,11 @@ nav {
     background: #000;
     width: 100%;
     max-width: 800px;
+    max-height: 90vh;
     border-radius: 20px;
     position: relative;
     border: 1px solid rgba(255, 184, 0, 0.2);
-    overflow: hidden;
+    overflow-y: auto;
     animation: modalIn 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -862,7 +863,7 @@ nav {
     color: var(--color-text-muted);
     line-height: 1.5;
 }
-
+@media (max-width: 768px) {
     .modal-body {
         flex-direction: column;
     }
