@@ -28,11 +28,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Favorites Product Data
     const productsData = {
-        'ai-waffle': { title: 'Gourmet Protein Waffle', price: 'S/ 24.00', image: 'assets/ai_waffle_v2.png', description: 'Waffle premium de proteína aislada con una textura crujiente por fuera y suave por dentro. Decorado con bayas frescas del huerto, rodajas de banano y un toque de miel orgánica. El desayuno ideal para campeones.' },
-        'ai-bowl': { title: 'Açai Protein Bowl', price: 'S/ 20.00', image: 'assets/ai_bowl_v2.png', description: 'Un superfood bowl cargado de energía. Base de açai orgánico con proteína, coronado con semillas de chía, granola artesanal y frutas tropicales. Una explosión de antioxidantes para tu día.' },
-        'ai-toast': { title: 'Protein Avocado Toast', price: 'S/ 22.00', image: 'assets/ai_toast_v2.png', description: 'Tostada de pan de masa madre con aguacate cremoso, semillas de girasol y un huevo poché perfecto. Cargado de grasas saludables y proteína de alta calidad para un rendimiento máximo.' },
-        'ai-tart': { title: 'Berry Protein Tart', price: 'S/ 18.00', image: 'assets/ai_tart.png', description: 'Tarta artesanal elaborada con una base de almendras y proteína, rellena de una crema suave de vainilla y coronada con una selección premium de frutos rojos frescos. Un postre sofisticado y nutritivo.' },
-        'ai-brownie': { title: 'Warm Choco Brownie', price: 'S/ 18.00', image: 'assets/ai_brownie.png', description: 'Brownie denso de chocolate amargo al 70%, enriquecido con proteína Bless y trozos de nueces seleccionadas. Servido con un toque de sal marina para realzar la pureza del cacao.' }
+        'ai-waffle': { 
+            title: 'Gourmet Protein Waffle', 
+            price: 'S/ 24.00', 
+            image: 'assets/ai_waffle_v2.png', 
+            description: 'Waffle premium de proteína aislada con una textura crujiente por fuera y suave por dentro. El desayuno ideal para campeones.',
+            macros: { prot: 28, carb: 35, fat: 10, cal: 340 },
+            benefits: ['Recuperación Muscular', 'Saciedad Prolongada'],
+            goal: 'musculo'
+        },
+        'ai-bowl': { 
+            title: 'Açai Protein Bowl', 
+            price: 'S/ 20.00', 
+            image: 'assets/ai_bowl_v2.png', 
+            description: 'Un superfood bowl cargado de energía. Base de açai orgánico con proteína, coronado con semillas de chía y frutas tropicales.',
+            macros: { prot: 15, carb: 48, fat: 12, cal: 360 },
+            benefits: ['Bombeo Antioxidante', 'Energía Natural'],
+            goal: 'energia'
+        },
+        'ai-toast': { 
+            title: 'Protein Avocado Toast', 
+            price: 'S/ 22.00', 
+            image: 'assets/ai_toast_v2.png', 
+            description: 'Tostada de pan de masa madre con aguacate cremoso, semillas de girasol y un huevo poché perfecto.',
+            macros: { prot: 18, carb: 28, fat: 22, cal: 390 },
+            benefits: ['Grasas Saludables', 'Balance Nutricional'],
+            goal: 'recuperacion'
+        },
+        'ai-tart': { 
+            title: 'Berry Protein Tart', 
+            price: 'S/ 18.00', 
+            image: 'assets/ai_tart.png', 
+            description: 'Tarta artesanal elaborada con una base de almendras y proteína, rellena de una crema suave de vainilla.',
+            macros: { prot: 12, carb: 24, fat: 14, cal: 270 },
+            benefits: ['Bajo en Azúcar', 'Frutos Rojos'],
+            goal: 'energia'
+        },
+        'ai-brownie': { 
+            title: 'Warm Choco Brownie', 
+            price: 'S/ 18.00', 
+            image: 'assets/ai_brownie.png', 
+            description: 'Brownie denso de chocolate amargo al 70%, enriquecido con proteína Bless y trozos de nueces seleccionadas.',
+            macros: { prot: 10, carb: 22, fat: 18, cal: 290 },
+            benefits: ['70% Cacao Puro', 'Gluten Free'],
+            goal: 'recuperacion'
+        }
     };
 
     // Swiper Carousel Initialization
@@ -51,6 +91,53 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalPrice = document.getElementById('modal-price');
     const modalDesc = document.getElementById('modal-desc');
 
+    function updateModalData(data) {
+        modalImg.src = data.image;
+        modalImg.classList.add('parallax-img');
+        modalTitle.textContent = data.title;
+        modalPrice.textContent = data.price;
+        modalDesc.textContent = data.description;
+        
+        // Inject Macros
+        const macroContainer = document.getElementById('modal-macros');
+        if (macroContainer && data.macros) {
+            macroContainer.innerHTML = `
+                <div class="macro-item">
+                    <span>Proteína</span>
+                    <div class="macro-bar"><div class="fill" id="prot-fill"></div></div>
+                    <span class="macro-val">${data.macros.prot}g</span>
+                </div>
+                <div class="macro-item">
+                    <span>Carbos</span>
+                    <div class="macro-bar"><div class="fill" id="carb-fill"></div></div>
+                    <span class="macro-val">${data.macros.carb}g</span>
+                </div>
+                <div class="macro-item">
+                    <span>Grasas</span>
+                    <div class="macro-bar"><div class="fill" id="fat-fill"></div></div>
+                    <span class="macro-val">${data.macros.fat}g</span>
+                </div>
+            `;
+            // Trigger animation after a brief moment to ensure modal is visible
+            setTimeout(() => {
+                const prot = document.getElementById('prot-fill');
+                const carb = document.getElementById('carb-fill');
+                const fat = document.getElementById('fat-fill');
+                if (prot) prot.style.width = `${data.macros.prot * 2.5}%`;
+                if (carb) carb.style.width = `${data.macros.carb * 1.5}%`;
+                if (fat) fat.style.width = `${data.macros.fat * 3}%`;
+            }, 100);
+        }
+
+        // Inject Benefits
+        const benefitContainer = document.getElementById('modal-benefits');
+        if (benefitContainer && data.benefits) {
+            benefitContainer.innerHTML = data.benefits.map((b, i) => 
+                `<span class="benefit-pill" style="animation-delay: ${i * 0.1}s">${b}</span>`
+            ).join('');
+        }
+    }
+
     let currentModalProduct = null;
     document.querySelectorAll('.swiper-slide').forEach(slide => {
         slide.addEventListener('click', () => {
@@ -58,10 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = productsData[productId];
             if (data) {
                 currentModalProduct = { ...data, id: productId };
-                modalImg.src = data.image;
-                modalTitle.textContent = data.title;
-                modalPrice.textContent = data.price;
-                modalDesc.textContent = data.description;
+                updateModalData(data);
                 modal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
             }
@@ -71,6 +155,55 @@ document.addEventListener('DOMContentLoaded', () => {
     closeBtn.addEventListener('click', () => {
         modal.style.display = 'none';
         document.body.style.overflow = '';
+    });
+
+    // --- PREMIUM INTERACTVITY: Filtering, Magnetic & Parallax ---
+
+    // 1. Wellness Goal Filter
+    const goalBtns = document.querySelectorAll('.goal-btn');
+    const productCards = document.querySelectorAll('.product-card');
+
+    goalBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const goal = btn.getAttribute('data-goal');
+            goalBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            productCards.forEach(card => {
+                const cardGoal = card.getAttribute('data-goal');
+                if (goal === 'all' || cardGoal === goal) {
+                    card.style.display = 'block';
+                    setTimeout(() => card.classList.add('active'), 50);
+                } else {
+                    card.classList.remove('active');
+                    setTimeout(() => card.style.display = 'none', 400);
+                }
+            });
+        });
+    });
+
+    // 2. Magnetic Logic
+    const magneticItems = document.querySelectorAll('.product-btn, .goal-btn, .logo, .nav-links a, .cart-float');
+    magneticItems.forEach(item => {
+        item.classList.add('magnetic');
+        item.addEventListener('mousemove', (e) => {
+            const position = item.getBoundingClientRect();
+            const x = e.pageX - position.left - position.width / 2;
+            const y = e.pageY - position.top - position.height / 2;
+            item.style.transform = `translate(${x * 0.3}px, ${y * 0.5}px)`;
+        });
+        item.addEventListener('mouseleave', () => {
+            item.style.transform = 'translate(0px, 0px)';
+        });
+    });
+
+    // 3. Modal Image Parallax
+    modal.addEventListener('mousemove', (e) => {
+        const img = modal.querySelector('.parallax-img');
+        if (!img) return;
+        const x = (window.innerWidth / 2 - e.pageX) / 40;
+        const y = (window.innerHeight / 2 - e.pageY) / 40;
+        img.style.transform = `translate(${x}px, ${y}px) rotateY(${x}deg)`;
     });
 
     // --- SHOPPING CART LOGIC ---
