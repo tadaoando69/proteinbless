@@ -155,7 +155,7 @@
                         <h3>Waffle Frutado</h3>
                         <p style="font-size: 0.8rem;">Banano, fresa y arándanos</p>
                         <p class="product-price">S/ 22.00</p>
-                        <a href="https://wa.me/51980052531" class="product-btn" style="display: block; text-align: center; text-decoration: none;">Pedir por WhatsApp</a>
+                        <button class="product-btn add-to-cart" data-id="waffle-frutas" data-name="Waffle Frutado" data-price="22">Añadir al Pedido</button>
                     </div>
                 </div>
                 <div class="product-card reveal delay-2">
@@ -164,7 +164,7 @@
                         <h3>Waffle Choc-Maní</h3>
                         <p style="font-size: 0.8rem;">Chocolate belga y lluvia de maní</p>
                         <p class="product-price">S/ 20.00</p>
-                        <a href="https://wa.me/51980052531" class="product-btn" style="display: block; text-align: center; text-decoration: none;">Pedir por WhatsApp</a>
+                        <button class="product-btn add-to-cart" data-id="waffle-choc" data-name="Waffle Choc-Maní" data-price="20">Añadir al Pedido</button>
                     </div>
                 </div>
                 <div class="product-card reveal delay-3">
@@ -173,7 +173,7 @@
                         <h3>Frappé de Fresa</h3>
                         <p style="font-size: 0.8rem;">Proteína isolada e ingredientes naturales</p>
                         <p class="product-price">S/ 18.00</p>
-                        <a href="https://wa.me/51980052531" class="product-btn" style="display: block; text-align: center; text-decoration: none;">Pedir por WhatsApp</a>
+                        <button class="product-btn add-to-cart" data-id="frappe-fresa" data-name="Frappé de Fresa" data-price="18">Añadir al Pedido</button>
                     </div>
                 </div>
                 <div class="product-card reveal delay-4">
@@ -182,7 +182,7 @@
                         <h3>Frappé de Cacao</h3>
                         <p style="font-size: 0.8rem;">Chocolate negro 70% y proteína Bless</p>
                         <p class="product-price">S/ 18.00</p>
-                        <a href="https://wa.me/51980052531" class="product-btn" style="display: block; text-align: center; text-decoration: none;">Pedir por WhatsApp</a>
+                        <button class="product-btn add-to-cart" data-id="frappe-choco" data-name="Frappé de Cacao" data-price="18">Añadir al Pedido</button>
                     </div>
                 </div>
                 <div class="product-card reveal delay-1">
@@ -191,7 +191,7 @@
                         <h3>Power Energy Tea</h3>
                         <p style="font-size: 0.8rem;">Antioxidante y revitalizante natural</p>
                         <p class="product-price">S/ 10.00</p>
-                        <a href="https://wa.me/51980052531" class="product-btn" style="display: block; text-align: center; text-decoration: none;">Pedir por WhatsApp</a>
+                        <button class="product-btn add-to-cart" data-id="tea-energy" data-name="Power Energy Tea" data-price="10">Añadir al Pedido</button>
                     </div>
                 </div>
                 <div class="product-card reveal delay-2">
@@ -200,7 +200,7 @@
                         <h3>Pote Proteína Bless</h3>
                         <p style="font-size: 0.8rem;">Pureza garantizada (900g)</p>
                         <p class="product-price">S/ 120.00</p>
-                        <a href="https://wa.me/51980052531" class="product-btn" style="display: block; text-align: center; text-decoration: none;">Pedir por WhatsApp</a>
+                        <button class="product-btn add-to-cart" data-id="protein-jar" data-name="Pote Proteína Bless" data-price="120">Añadir al Pedido</button>
                     </div>
                 </div>
             </div>
@@ -306,7 +306,10 @@
                         <h4>Ingredientes Premium</h4>
                         <p id="modal-desc"></p>
                     </div>
-                    <a href="https://wa.me/51980052531" class="product-btn" style="text-decoration: none; display: block; text-align: center;">Hacer Pedido por WhatsApp</a>
+                    <div class="modal-actions" style="margin-top: 1rem; display: flex; flex-direction: column; gap: 10px;">
+                        <button id="modal-add-btn" class="product-btn">Añadir al Pedido</button>
+                        <a href="https://wa.me/51980052531" class="product-btn" style="text-decoration: none; display: block; text-align: center; background: #25D366;">Hacer Pedido por WhatsApp</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -314,5 +317,29 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="main.js"></script>
+    <!-- Floating Cart Button -->
+    <div id="cart-float" class="cart-float">
+        <span id="cart-count">0</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="cart-drawer">
+        <div class="cart-header">
+            <h3>Tu Pedido</h3>
+            <button id="close-cart" class="close-btn">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <!-- Items injected by JS -->
+            <div class="empty-cart-msg">Tu pedido está vacío.</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total Estimado:</span>
+                <span id="cart-total-price">S/ 0.00</span>
+            </div>
+            <button id="checkout-btn" class="checkout-btn">Confirmar Pedido (WhatsApp)</button>
+        </div>
+    </div>
 </body>
 </html>
