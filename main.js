@@ -182,15 +182,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Magnetic Logic
-    const magneticItems = document.querySelectorAll('.product-btn, .goal-btn, .logo, .nav-links a, .cart-float');
+    // 2. Magnetic Logic — only on decorative nav items, NOT on clickable buttons
+    // (Applying transform to buttons shifts visual position but NOT the hitbox, breaking clicks)
+    const magneticItems = document.querySelectorAll('.logo, .nav-links a');
     magneticItems.forEach(item => {
         item.classList.add('magnetic');
         item.addEventListener('mousemove', (e) => {
             const position = item.getBoundingClientRect();
             const x = e.pageX - position.left - position.width / 2;
             const y = e.pageY - position.top - position.height / 2;
-            item.style.transform = `translate(${x * 0.3}px, ${y * 0.5}px)`;
+            item.style.transform = `translate(${x * 0.2}px, ${y * 0.3}px)`;
         });
         item.addEventListener('mouseleave', () => {
             item.style.transform = 'translate(0px, 0px)';
