@@ -504,7 +504,13 @@ nav {
 
     #favorites {
         margin-top: 0 !important;
-        padding: 2rem 0;
+        padding: 3rem 0 5rem;
+    }
+
+    .image-inner img {
+        max-width: 280px !important;
+        margin: 0 auto;
+        transform: none !important;
     }
 
     .bento-grid, .product-grid {
@@ -537,9 +543,24 @@ nav {
     width: 100%;
     max-width: 1200px !important;
     margin: 0 auto;
-    padding: 0;
+    padding: 20px 0 50px;
     position: relative;
     overflow: visible !important;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: #FFFFFF !important;
+    transition: var(--transition-fast);
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 1.5rem !important;
+    font-weight: 900;
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+    color: var(--color-accent) !important;
+    transform: scale(1.2);
 }
 
 .swiper-slide {

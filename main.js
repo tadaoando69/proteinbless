@@ -77,6 +77,10 @@ document.addEventListener('DOMContentLoaded', () => {
             clickable: true,
             dynamicBullets: true,
         },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
         breakpoints: {
             1024: {
                 slidesPerView: 1.2,
