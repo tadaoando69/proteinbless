@@ -1,0 +1,16 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Gemini/Antigravity temporary files
+.gemini/
+antigravity/
+
+# Artifacts/Brain
+brain/
+knowledge/
+walkthrough.md
+implementation_plan*.md
+task.md
+*.png
+*.webp
