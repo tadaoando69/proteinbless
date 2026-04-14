@@ -1130,14 +1130,13 @@ svg {
     100% { transform: translateY(0); }
 }
 
-h1, h2, h3, .serif, .badge, .product-price {
+/* Apply float only to truly inline/inline-block elements to avoid layout collapse */
+.badge, .product-price {
+    display: inline-block;
     animation: floatSubtle 4s ease-in-out infinite;
-    display: inline-block; /* Required for some transform behaviors */
 }
 
 /* Specific delay for variety */
-h2 { animation-delay: 0.5s; }
-h3 { animation-delay: 1s; }
 .badge { animation-delay: 1.5s; }
 
 /* --- Interactive Experience Expansion --- */
