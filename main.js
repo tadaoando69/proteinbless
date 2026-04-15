@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
     closeCartBtn.addEventListener('click', toggleCart);
 
     checkoutBtn.addEventListener('click', () => {
-        let message = `*NUEVO PEDIDO - PROTEIN BLESS*\n\nHola! Me gustaría pedir los siguientes productos:\n\n`;
+        let message = `*NUEVO PEDIDO - Protein Factory*\n\nHola! Me gustaría pedir los siguientes productos:\n\n`;
         let total = 0;
         cart.forEach(item => { total += item.price * item.qty; message += `• *${item.qty}x* ${item.name} (S/ ${(item.price * item.qty).toFixed(2)})\n`; });
         message += `\n*TOTAL ESTIMADO: S/ ${total.toFixed(2)}*`;
